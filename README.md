@@ -50,9 +50,7 @@ Across both H1N1 and seasonal flu, as risk perception and vaccine effectiveness 
 ## Modelling 
 ### Model Performance Comparison
 
-
-
-![alt text](image.png)
+![Model Comparison](images/model_comparison.png)
 
   Supervised machine learning models were used for binary classification of vaccination uptake. A Random Forest Classifier was used as the primary model due to its ability to capture complex, non-linear relationships in the data. A Decision Tree Classifier was also implemented as a simpler baseline model for comparison. In addition, a Logistic Regression model was introduced as a strong linear benchmark, valued for its interpretability and effectiveness in handling binary classification problems, particularly in cases of class imbalance.
 
