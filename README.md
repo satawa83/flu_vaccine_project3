@@ -2,22 +2,29 @@
 
 ## Overview
 
-This project investigates the key drivers of H1N1 and seasonal influenza vaccination uptake using survey data. By applying machine learning models, it identifies how demographic characteristics, behavioral patterns, and risk perceptions influence vaccine acceptance. The insights aim to support data-driven public health interventions to improve vaccination coverage
+This project investigates the H1N1 and seasonal influenza vaccination uptake. This are done by applying machine learning models, which identifies vaccination distribution, education, percived effectiveness and risk perceptions in relation to vaccine uptake. The insights aim to support data-driven public health interventions to improve vaccination coverage
 
 ## Problem Statement
+
 Vaccination rates for H1N1 and seasonal influenza remain inconsistent across populations. Understanding the factors influencing vaccine uptake is critical for designing effective public health strategies and reducing preventable disease spread.
 
 ## Business understanding 
 
-This project addresses uneven vaccination uptake by analyzing how demographic, behavioral, and perception factors influence vaccine decisions. The goal is to generate insights to support public health strategies and improve vaccination coverage.
+This project addresses uneven vaccination uptake by analyzing how vaccination distribution, education, percived effectiveness and risk perceptions as  factors influencing vaccine uptake. The goal is to generate insights to support public health strategies and improve vaccination coverage.
 
 ## Data Understanding 
 
-The dataset was obtained from DrivenData and contains survey responses on H1N1 and seasonal influenza vaccination behavior, with 26,707 records and 36 features.
+The dataset was obtained from DrivenData and contains survey responses on H1N1 and seasonal influenza vaccination trends, with 26,707 records and 36 features.
 
 ## Data Preparation & Splitting
 
 Data preprocessing involved handling missing values, encoding categorical variables, and scaling numerical features. The dataset was split into training and testing sets (80/20), and a pipeline was used to ensure consistent preprocessing and prevent data leakage.
+
+### Stakeholders
+
+These are individuals or organizations that use, influence, or are affected by the public health and healthcare system. In the context of influenza vaccination.
+
+key stakeholders include, Ministry of health, healthcare providers, insurance providers, general public, Non-governmental organizations (NGOs)
 
 ## Exploratory Data Analysis
 
@@ -27,7 +34,7 @@ Result and insight
 
 ![Vaccine Distribution](images/vaccine_distribution_piecharts.png)
 
-Seasonal flu vaccination is more routine while H1N1 may be perceived as less familiar & less trusted
+Seasonal flu vaccination is more routine while H1N1 was observered as less familiar
 
 ### Education vs H1N1 Vaccine Uptake
 
@@ -39,7 +46,7 @@ Individuals with higher education levels demonstrate significantly higher vaccin
 
 ![Perceived Effectiveness](images/perceived_effectiveness.png)
 
-Perceived vaccine effectiveness is one of the strongest predictors of uptake, indicating that misinformation or lack of trust in vaccines can significantly reduce vaccination rates.
+Perceived vaccine effectiveness indicating that misinformation or lack of trust in vaccines can significantly reduce vaccination rates.
 
 ### Risk Perception vs Vaccine Uptake
 
@@ -48,13 +55,17 @@ Perceived vaccine effectiveness is one of the strongest predictors of uptake, in
 Across both H1N1 and seasonal flu, as risk perception and vaccine effectiveness vaccination rates increase.
 
 ## Modelling 
+
+Supervised machine learning models were used for binary classification of vaccination uptake. A Random Forest Classifier was used as the primary model due to its ability to capture complex, non-linear relationships in the data.
+
+A Decision Tree Classifier was also implemented as a simpler baseline model for comparison. 
+
+In addition, a Logistic Regression model was introduced as a strong linear benchmark, valued for its interpretability and effectiveness in handling binary classification problems, particularly in cases of class imbalance.
+
+## Evaluation
 ### Model Performance Comparison
 
 ![Model Performance Comparison](images/model_comparison.png)
-
-  Supervised machine learning models were used for binary classification of vaccination uptake. A Random Forest Classifier was used as the primary model due to its ability to capture complex, non-linear relationships in the data. A Decision Tree Classifier was also implemented as a simpler baseline model for comparison. In addition, a Logistic Regression model was introduced as a strong linear benchmark, valued for its interpretability and effectiveness in handling binary classification problems, particularly in cases of class imbalance.
-
-## Evaluation
 
 Random Forest generally achieves the highest accuracy (H1N1: 0.82, Seasonal: 0.78), making it strong for overall correct predictions. However, it tends to have lower recall in some cases, meaning it may miss some positive cases.
 
@@ -70,7 +81,7 @@ Logistic Regression and Random Forest are the most competitive models, with Logi
 
 High levels of missing values may leading to biased predictions.
 
-Class Imbalance between vaccinated and non-vaccinated individuals can reduce the model’s effectiveness 
+Class Imbalance between vaccinated and non-vaccinated individuals can reduce the model effectiveness 
 
 The dataset represents a single point in time and does not capture changes in behavior, perceptions, or policies, limiting the ability to model trends or future shifts.
 
@@ -80,12 +91,12 @@ Misclassification of individuals may lead to ineffective targeting of vaccinatio
 Python, Pandas, NumPy, Scikit-learn, Matplotlib/Seaborn, Jupyter Notebook
    
 ## Dataset Source
-DrivenData H1N1 Vaccination Dataset
+DrivenData H1N1 and Seasonal Vaccination Dataset
 
 ## Results 
 H1N1 vaccination
 
-Logistic Regression achieves the highest recall (0.73), making it the best at identifying infected cases. Although Random Forest has slightly higher accuracy (0.82), all models share the same F1-score (0.59), indicating limited overall balance. From a screening perspective, minimizing missed infections is more critical than maximizing accuracy.
+Logistic Regression achieves the highest recall (0.73), making it the best at identifying infected cases. Although Random Forest has slightly higher accuracy (0.82), all models share the same F1-score (0.59), indicating limited overall balance. Recall is more critical accuracy.  
 
 Seasonal Flu vaccination
 
